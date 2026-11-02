@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
+import PrivacyPolicy from "./PrivacyPolicy";
 
 const publications = [
   ["2021", "Unmanned Aerial Vehicles Motion Control with Fuzzy Tuning of Cascaded-PID Gains", "https://sciprofiles.com/publication/view/7c10a222af668029a1b5a761268e5589"],
@@ -52,4 +53,5 @@ export default App;
 
 const root = document.getElementById("root");
 if (!root) throw new Error("React root element #root was not found.");
-createRoot(root).render(<App />);
+const isPrivacy = window.location.pathname.replace(/\/+$/, "") === "/privacy-qwcfresf-yt-bot";
+createRoot(root).render(isPrivacy ? <PrivacyPolicy /> : <App />);
